@@ -1,0 +1,59 @@
+Classes:
+    Piece
+    Board
+    Game
+
+Piece:
+    Global Variables:
+        Private int value
+        Private boolean hasChanged
+
+    Methods:
+        constructor
+        changeValue (multiplies value by itself)
+        getter
+
+Board:
+    Global Variables:
+        Public final ints to hold num rows and cols
+        Private 2D piece array to hold board
+
+    Methods:
+        -constructor (inits array and adds new piece)
+        -addPiece (ALSO ENDS THE GAME)
+        -moveLeft
+        -moveRight
+        -moveUp
+        -moveDown
+        combinePieces (calls changeValue and deletes a piece)
+        bool checkForCombo (when the board is full, check if there is a combo before ending the game)
+        bool detectCollision (If nums match, combine, else do not move them)
+        -bool isFull
+        -boardString
+        resetHasChanged
+        getters (no setters)
+
+Game:
+    Global Variables:
+        Strings to hold move types (i.e. w,a,s,d)
+        Private instance of board
+
+    Methods:
+        constructor (inits board, printBoard and calls read input)
+        readInput (use scanner, calls attemptMove, then prints board)
+        attemptMove (takes string as constructor and calls board move methods)
+        printBoard (loop through board and saves in string)
+
+
+
+CUT METHODS JUST IN CASE:
+     /**
+     * Called before moving the pieces in the board
+     * If there are two pieces already touching that have the same value, delete the piece that would move and call
+     * changeValue on the piece that remains
+     * Important: Don't call refreshDisplay so that a fluid motion is simulated. If refreshDisplay was called, the
+     * combining and moving would seem to be two different events
+     */
+    private void detectCollision(){
+
+    }
